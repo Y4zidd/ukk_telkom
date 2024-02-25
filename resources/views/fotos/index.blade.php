@@ -8,26 +8,14 @@
             @auth
                 <a href="{{ route('foto.create') }}" class="btn btn-primary mb-3">Tambah Foto</a>
             @endauth
-
-
         </div>
     </div>
 
-    <div class="alert alert-success" id="success-message">
+    @if (session('success'))
+    <div class="alert alert-success">
         {{ session('success') }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
     </div>
-
-    <script>
-    $(document).ready(function() {
-        // Remove success message when close button is clicked
-        $('#success-message .close').click(function() {
-            $('#success-message').fadeOut('slow');
-        });
-    });
-    </script>
+    @endif
 
     <div class="row">
         @foreach($fotos as $foto)
