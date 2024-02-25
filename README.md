@@ -2,7 +2,7 @@
 
 1. clone repository
 ```
-git clone https://github.com/Y4zidd/ukk_telkom
+git clone https://github.com/Y4zidd/ukk_telkom.git
 ```
 
 2. open your project
