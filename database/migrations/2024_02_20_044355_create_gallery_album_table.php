@@ -14,7 +14,7 @@ class CreateGalleryAlbumTable extends Migration
      */
     public function up()
     {
-        Schema::create('albums', function (Blueprint $table) {
+        Schema::create('gallery_album', function (Blueprint $table) {
             $table->id('album_id'); // Membuat primary key 'album_id'
             $table->string('nama_album'); // Membuat kolom 'nama_album'
             $table->text('deskripsi')->nullable(); // Membuat kolom 'deskripsi' yang bisa null
