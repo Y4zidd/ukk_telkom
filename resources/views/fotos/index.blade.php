@@ -8,20 +8,23 @@
             @auth
                 <a href="{{ route('foto.create') }}" class="btn btn-primary mb-3">Tambah Foto</a>
             @endauth
+
+
         </div>
     </div>
 
     @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
 
     <div class="row">
         @foreach($fotos as $foto)
             <div class="col-md-4 mb-4">
                 <div class="foto-container">
-                    <a href="{{ route('foto.show', $foto->foto_id) }}" data-lightbox="gallery" data-title="{{ $foto->judul_foto }}">
+                    <a href="{{ Storage::url($foto->lokasi_file) }}" data-lightbox="gallery" data-title="{{ $foto->judul_foto }}">
                         <img src="{{ Storage::url($foto->lokasi_file) }}" class="img-fluid foto-thumbnail" alt="{{ $foto->judul_foto }}">
                     </a>
                     <h5 class="foto-title">
@@ -30,21 +33,21 @@
                     <p class="foto-album">Album: {{ $foto->album->nama_album }}</p> <!-- Tampilkan nama album -->
                     <p class="foto-user">Uploaded by: {{ $foto->user->name }}</p> <!-- Tampilkan nama user -->
                     <div class="foto-description">{{ $foto->deskripsi_foto }}</div>
-                    <br style="margin-top: 0px;">
-<form action="{{ route('foto.destroy', $foto->foto_id) }}" method="POST" style="display:inline;">
-  @csrf
-  @method('DELETE')
-  <button type="submit" class="btn btn-danger ml-3">Delete</button>
-</form>
+                    <div class="row justify-content-center my-1">
+                        <form class="mb-0" method="POST" action="{{ route('foto.destroy', $foto->foto_id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <br>
+                            <button type="submit" class="btn btn-outline-danger">Hapus</button>
+                        </form>
 
-                   </div>
+                    </div>
                 </div>
             </div>
         @endforeach
-    </div>
 
 
-
+        
     </div>
 </div>
 @endsection
