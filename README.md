@@ -30,3 +30,10 @@ $ php artisan migrate
 ```
 php artisan serve
 ```
+
+#Notes
+
+connect storage link Laravel
+```
+php artisan storage:link
+```
