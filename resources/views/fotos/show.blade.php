@@ -41,12 +41,6 @@
                 <button type="submit" class="btn btn-primary">Kirim Komentar</button>
             </form>
             @endif
-            <form action="{{ route('foto.destroy', $foto->foto_id) }}" method="POST"
-                style="display:inline">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </div>
         </div>
     </div>
 </div>

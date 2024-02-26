@@ -30,6 +30,14 @@
                     <p class="foto-album">Album: {{ $foto->album->nama_album }}</p> <!-- Tampilkan nama album -->
                     <p class="foto-user">Uploaded by: {{ $foto->user->name }}</p> <!-- Tampilkan nama user -->
                     <div class="foto-description">{{ $foto->deskripsi_foto }}</div>
+                    <br style="margin-top: 0px;">
+<form action="{{ route('foto.destroy', $foto->foto_id) }}" method="POST" style="display:inline;">
+  @csrf
+  @method('DELETE')
+  <button type="submit" class="btn btn-danger ml-3">Delete</button>
+</form>
+
+                   </div>
                 </div>
             </div>
         @endforeach
